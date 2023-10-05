@@ -45,7 +45,7 @@ input[type=radio],
     vertical-align: middle;
 }
 
-.xdebug-session-icon {
+.xdebug-icon {
     height: var(--input-height);
 }
 

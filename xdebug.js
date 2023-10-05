@@ -1,4 +1,4 @@
-let cookieName = 'XDEBUG_SESSION';
+let cookieName = 'XDEBUG_TRIGGER';
 let currentTab;
 
 async function updateIcon() {
@@ -10,7 +10,7 @@ async function updateIcon() {
         tabId: currentTab.id
     });
     browser.browserAction.setTitle({
-        title: cookie ? 'xDEBUG Session (on)' : 'xDEBUG Session (off)',
+        title: cookie ? 'Xdebug On' : 'Xdebug Off',
         tabId: currentTab.id
     });
 }
@@ -41,10 +41,10 @@ async function toggleCookie() {
 }
 
 async function getIcons(cookie) {
-    let state = 'xdebug_session_off_color';
+    let state = 'xdebug_off_color';
     let stateColor = 'light';
     if (cookie) {
-        state = 'xdebug_session_on_color';
+        state = 'xdebug_on_color';
         stateColor = 'red';
     }
     let config = await browser.storage.sync.get(state);
@@ -59,9 +59,9 @@ async function getIcons(cookie) {
 }
 
 async function getValueToSet() {
-    let config = await browser.storage.sync.get('xdebug_session');
+    let config = await browser.storage.sync.get('xdebug_trigger');
 
-    return config.xdebug_session || 'phpstorm';
+    return config.xdebug_trigger || 'phpstorm';
 }
 
 async function getCookie() {

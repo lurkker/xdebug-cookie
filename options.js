@@ -5,27 +5,27 @@ async function saveOptions(e) {
     hideMessages();
 
     let saved = browser.storage.sync.set({
-        xdebug_session: document.querySelector(".xdebug_session").value,
-        xdebug_session_on_color: document.querySelector(".xdebug-session-on-color:checked").value,
-        xdebug_session_off_color: document.querySelector(".xdebug-session-off-color:checked").value
+        xdebug_trigger: document.querySelector(".xdebug_trigger").value,
+        xdebug_on_color: document.querySelector(".xdebug-on-color:checked").value,
+        xdebug_off_color: document.querySelector(".xdebug-off-color:checked").value
     });
     saved.then(showSuccess, showError);
 }
 
 async function restoreOptions() {
     const items = [
-        'xdebug_session',
-        'xdebug_session_on_color',
-        'xdebug_session_off_color'
+        'xdebug_trigger',
+        'xdebug_on_color',
+        'xdebug_off_color'
     ];
     let sessionKey = await browser.storage.sync.get(items);
 
-    document.querySelector(".xdebug_session").value = sessionKey.xdebug_session || 'phpstorm';
+    document.querySelector(".xdebug_trigger").value = sessionKey.xdebug_trigger || '';
 
-    let onColor = sessionKey.xdebug_session_on_color || 'red';
-    let offColor = sessionKey.xdebug_session_off_color || 'light';
-    document.querySelector(".xdebug-session-on-color[value="+ onColor +"]").checked = true;
-    document.querySelector(".xdebug-session-off-color[value="+ offColor +"]").checked = true;
+    let onColor = sessionKey.xdebug_on_color || 'red';
+    let offColor = sessionKey.xdebug_off_color || 'light';
+    document.querySelector(".xdebug-on-color[value="+ onColor +"]").checked = true;
+    document.querySelector(".xdebug-off-color[value="+ offColor +"]").checked = true;
 }
 
 function showSuccess() {
