@@ -3,7 +3,7 @@
     "name": "Xdebug Cookie",
     "version": "3.3",
 
-    "description": "Xdebug Cookie Injection",
+    "description": "Xdebug Cookie",
     "homepage_url": "https://github.com/lurkker/xdebug-cookie",
 
     "icons": {
