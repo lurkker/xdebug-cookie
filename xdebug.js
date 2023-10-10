@@ -35,6 +35,9 @@ async function toggleCookie() {
         name: cookieName,
         value: valueToSet,
         path: "/",
+        secure: true,
+        httpOnly: true,
+        sameSite: "strict",
         storeId: currentTab.cookieStoreId
     });
     updateIcon();
@@ -61,7 +64,7 @@ async function getIcons(cookie) {
 async function getValueToSet() {
     let config = await browser.storage.sync.get('xdebug_trigger');
 
-    return config.xdebug_trigger || 'phpstorm';
+    return config.xdebug_trigger;
 }
 
 async function getCookie() {
