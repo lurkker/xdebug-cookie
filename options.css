@@ -1,7 +1,14 @@
 :root {
     --gutter-size: 10px;
     --input-height: 2rem;
-    --label-width: 7rem;
+    --label-width: fit-content;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #000;
+    color: #fff;
+  }
 }
 
 .options-form,
