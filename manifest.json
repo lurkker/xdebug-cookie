@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Xdebug Cookie",
-    "version": "3.3",
+    "version": "3.3.1",
 
     "description": "Xdebug Cookie",
     "homepage_url": "https://github.com/lurkker/xdebug-cookie",
